@@ -1,4 +1,7 @@
 
+using Microsoft.EntityFrameworkCore;
+using SmartStore.DAL.Data;
+
 namespace SmartStore.PL
 {
     public class Program
@@ -12,6 +15,10 @@ namespace SmartStore.PL
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            });
 
             var app = builder.Build();
 
