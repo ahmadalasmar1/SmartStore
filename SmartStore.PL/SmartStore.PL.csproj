@@ -18,8 +18,4 @@
     <ProjectReference Include="..\SmartStore.BLL\SmartStore.BLL.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>

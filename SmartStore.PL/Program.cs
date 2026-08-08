@@ -1,6 +1,8 @@
 
 using Microsoft.EntityFrameworkCore;
+using SmartStore.BLL.Services;
 using SmartStore.DAL.Data;
+using SmartStore.DAL.Repository;
 
 namespace SmartStore.PL
 {
@@ -19,6 +21,8 @@ namespace SmartStore.PL
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
+            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+            builder.Services.AddScoped<ICategoryService, CategoryService>();
 
             var app = builder.Build();
 
